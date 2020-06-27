@@ -51,8 +51,8 @@ RUN composer global require "laravel/installer" \
 
 WORKDIR /var/www/html
 
-RUN composer create-project --prefer-dist laravel/laravel react_laravel_tutoreal
+RUN cd /var/www/html/backend && composer create-project --prefer-dist laravel/laravel backend
+RUN cd /var/www/html/backend && composer install
+RUN mkdir /var/www/html/frontend
 
-WORKDIR /var/www/html/react_laravel_tutoreal
-
-RUN chown -R www-data:www-data /var/www/html/react_laravel_tutoreal
+RUN chown -R www-data:www-data /var/www/html/backend
